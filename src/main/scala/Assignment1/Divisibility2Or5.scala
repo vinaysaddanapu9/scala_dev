@@ -1,3 +1,5 @@
+package Assignment1
+
 object Divisibility2Or5 {
 
   def checkDivisibility2or5(num: Int): Boolean = {

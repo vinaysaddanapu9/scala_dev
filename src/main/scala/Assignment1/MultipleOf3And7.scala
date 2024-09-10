@@ -1,3 +1,5 @@
+package Assignment1
+
 object MultipleOf3And7 {
 
   private def checkMultiple(num: Int): Boolean = {

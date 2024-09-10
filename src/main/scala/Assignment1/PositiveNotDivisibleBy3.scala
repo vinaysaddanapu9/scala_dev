@@ -1,3 +1,5 @@
+package Assignment1
+
 object PositiveNotDivisibleBy3 {
 
   private def checkPositiveAndNotDivisibleBy3(num: Int): Boolean = {

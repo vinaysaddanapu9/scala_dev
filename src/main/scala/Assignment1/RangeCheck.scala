@@ -1,3 +1,5 @@
+package Assignment1
+
 object RangeCheck {
 
   private def rangeCheck(num: Int): Boolean = {

@@ -1,3 +1,5 @@
+package Assignment1
+
 object VoteEligibility {
   def checkEligiblity(age: Int): String = {
     if(age >= 18) {

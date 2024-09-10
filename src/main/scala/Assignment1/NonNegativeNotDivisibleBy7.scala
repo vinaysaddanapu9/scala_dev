@@ -1,3 +1,5 @@
+package Assignment1
+
 object NonNegativeNotDivisibleBy7 {
 
   private def checkNonNegativeNotDivisibleBy7(num: Int): Boolean = {

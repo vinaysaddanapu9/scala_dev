@@ -1,3 +1,5 @@
+package Assignment1
+
 object NonPositiveEvenNumber {
 
   private def checkNonPositiveAndEven(num: Int): Boolean = {

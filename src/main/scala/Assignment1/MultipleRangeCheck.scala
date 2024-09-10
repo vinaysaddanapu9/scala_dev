@@ -1,3 +1,5 @@
+package Assignment1
+
 object MultipleRangeCheck {
 
   private def multipleRangeCheck(num: Int): String = {

@@ -1,3 +1,5 @@
+package Assignment1
+
 object OddAndNotDivisibleBy4 {
 
   def checkOddAndNotDivisibleBy4(num: Int): Boolean = {

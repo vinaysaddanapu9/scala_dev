@@ -1,3 +1,5 @@
+package Assignment1
+
 object Divisiblity5And7 {
   private def checkDivisiblity5And7(num: Int): Boolean = {
      (num%5 == 0 && num%7 == 0)

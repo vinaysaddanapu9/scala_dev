@@ -1,3 +1,5 @@
+package Assignment1
+
 object AgeGroup {
 
   private def ageGroupClassification(age: Int): String = {

@@ -1,3 +1,5 @@
+package Assignment1
+
 object OddOrPrimeNumber {
 
    private def checkOddorPrimeNumber(num: Int): Boolean = {

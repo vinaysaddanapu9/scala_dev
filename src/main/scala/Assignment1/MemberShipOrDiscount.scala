@@ -1,3 +1,5 @@
+package Assignment1
+
 object MemberShipOrDiscount {
 
   private def checkEligibilityForMemberShipOrDiscount(amount: Int): String = {

@@ -1,3 +1,5 @@
+package Assignment1
+
 object SeniorStudentDiscount {
 
   private def checkSeniorOrStudentDiscount(age: Int): String = {

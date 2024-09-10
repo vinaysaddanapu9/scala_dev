@@ -1,3 +1,5 @@
+package Assignment1
+
 object CheckOddNumber {
    private def checkOddNumberAndDivisibleThree(num: Int): Boolean = {
      (num%2 != 0 && num%3 != 0)

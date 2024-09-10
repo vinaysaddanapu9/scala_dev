@@ -1,3 +1,5 @@
+package Assignment1
+
 object EvenAndPositive {
 
   private def isEvenAndPositive(num: Int): Boolean = {

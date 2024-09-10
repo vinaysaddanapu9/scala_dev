@@ -1,3 +1,5 @@
+package Assignment1
+
 object Divisibility3Or8 {
 
    private def checkDivisiblity3or8(num: Int): Boolean = {

@@ -1,3 +1,5 @@
+package Assignment1
+
 object StudentDiscountFreeTrial {
 
   def checkStudentDiscountOrFreeTrial(age: Int, freeTrial: Boolean): String = {
