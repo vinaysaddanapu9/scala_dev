@@ -1,6 +1,7 @@
 package Spark_DataFrames
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.{col, when}
 
 object Transactions {
 
@@ -18,7 +19,10 @@ object Transactions {
       (3, 5000)
     ).toDF("transaction_id", "amount")
 
-    transactions.show()
+    transactions.withColumn("category", when(col("amount") > 1000, "High")
+      .when((col("amount") > 500) && (col("amount") <= 1000), "Medium").otherwise("Low")).show()
+
+    //transactions.show()
 
 
   }
