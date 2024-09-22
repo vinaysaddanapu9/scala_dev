@@ -1,4 +1,4 @@
-package Spark_DataFrames
+package Spark_DataFrames_Assignment1
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{avg, col, when}
