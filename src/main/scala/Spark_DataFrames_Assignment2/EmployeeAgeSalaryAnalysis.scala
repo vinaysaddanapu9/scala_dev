@@ -2,7 +2,7 @@ package Spark_DataFrames_Assignment2
 
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.functions.{col, when}
+import org.apache.spark.sql.functions.{avg, col, sum, when, min, max}
 
 object EmployeeAgeSalaryAnalysis {
 
@@ -27,9 +27,10 @@ object EmployeeAgeSalaryAnalysis {
     ).toDF("employee_id", "name", "age", "salary")
 
     //Age Group
-    employees.select(col("*"), when(col("age") < 30, "Young")
+    val df1 = employees.select(col("*"), when(col("age") < 30, "Young")
       .when((col("age") >= 30) && (col("age") <= 50), "Mid").when(col("age") > 50, "Senior").as("age_group"))
-      .show()
+
+    df1.show()
 
     //Salary Range
     employees.select(col("*"), when(col("salary") > 100000, "High")
@@ -40,10 +41,15 @@ object EmployeeAgeSalaryAnalysis {
     employees.filter(col("name").startsWith("J")).show()
     employees.filter(col("name").endsWith("e")).show()
 
+    //Calculate the total (sum), average (avg), maximum (max), and minimum (min) salary for each age_group.
+    df1.groupBy(col("age_group")).agg(sum(col("salary")).as("total_salary"), avg(col("salary")), min(col("salary")),
+      max(col("salary"))).show()
+
     //employees.show()
     println("=============== Spark SQL ===================")
 
     employees.createOrReplaceTempView("employees")
+    df1.createOrReplaceTempView("emp_age_group")
 
     spark.sql(
       """
@@ -79,6 +85,16 @@ object EmployeeAgeSalaryAnalysis {
         SELECT *
         FROM employees
         WHERE name like '%e'
+        """).show()
+
+    spark.sql(
+      """
+        SELECT
+        age_group,
+        sum(salary) as total_salary, avg(salary),
+        max(salary), min(salary)
+        FROM emp_age_group
+        GROUP BY age_group
         """).show()
 
   }
