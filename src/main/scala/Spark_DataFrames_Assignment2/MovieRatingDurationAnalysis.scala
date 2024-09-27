@@ -91,7 +91,7 @@ object MovieRatingDurationAnalysis {
       """
         SELECT
         rating_category,
-        sum(duration_minutes) as total_sum, avg(duration_minutes),
+        sum(duration_minutes) as total_sum_duration, avg(duration_minutes),
         min(duration_minutes), max(duration_minutes)
         FROM movies_rating_category
         GROUP BY rating_category

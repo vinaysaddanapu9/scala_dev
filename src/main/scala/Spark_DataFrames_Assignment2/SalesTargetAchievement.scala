@@ -64,7 +64,7 @@ object SalesTargetAchievement {
       """
         SELECT
         achievement_status,
-        sum(sales_amount) as total_sales_amount, avg(sales_amount),
+        sum(sales_amount) as total_sum_sales, avg(sales_amount),
         min(sales_amount), max(sales_amount)
         FROM sales_achievement_status_tab
         GROUP BY achievement_status
