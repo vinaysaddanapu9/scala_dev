@@ -13,7 +13,7 @@ object LeadProblem {
     Logger.getLogger(("akka")).setLevel(Level.OFF)
 
     val spark = SparkSession.builder()
-      .appName("Practice2")
+      .appName("LeadProblem")
       .master("local[*]")
       .getOrCreate()
 
