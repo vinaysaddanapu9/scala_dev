@@ -35,5 +35,16 @@ object LeadLagSalary {
       lag(col("salary"), 1).over(window).as("previous_salary"))
       .show()
 
+    println("============= Spark SQL ==============")
+    salary.createOrReplaceTempView("salary")
+
+    spark.sql(
+      """
+        SELECT *,
+        LEAD(salary, 1) OVER(order by id1) as next_salary,
+        LAG(salary, 1) OVER(order by id1) as previous_salary
+        FROM salary
+        """).show()
+
   }
 }

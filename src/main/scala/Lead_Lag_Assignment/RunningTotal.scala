@@ -31,5 +31,15 @@ object RunningTotal {
     val window = Window.orderBy("id1")
     salary.withColumn("Running_Total", sum(col("salary")).over(window)).show()
 
+    println("============ Spark SQL =============")
+    salary.createOrReplaceTempView("salary")
+
+    spark.sql(
+      """
+        SELECT *,
+        SUM(salary) OVER(order by id1) as Running_Total
+        FROM salary
+        """).show()
+
   }
 }

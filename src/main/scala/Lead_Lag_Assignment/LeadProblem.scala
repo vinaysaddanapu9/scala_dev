@@ -33,6 +33,17 @@ object LeadProblem {
     customers.select(col("order_id"), col("customer"), col("order_date"),
       lead(col("order_date"), 1).over(window).as("next_date")).show()
 
+    println("============== Spark SQL =============")
+    customers.createOrReplaceTempView("customers")
+
+    spark.sql(
+      """
+        SELECT
+        order_id, customer, order_date,
+        LEAD(order_date) OVER(order by order_date) as next_date
+        FROM customers
+        """).show()
+
 
 
 
