@@ -1,9 +1,9 @@
 package Spark_DataFrames_Assignment1
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.log4j.Logger
 import org.apache.log4j.Level
-import org.apache.spark.sql.functions.{avg, col, min, max}
+import org.apache.spark.sql.functions.{avg, col, max, min}
 
 object Weather {
 
@@ -33,5 +33,14 @@ object Weather {
       max(col("Temperature")).as("max_temperature"), avg(col("Temperature")).as("avg_temperature")).show()
 
     //weatherData.show()
+
+    weatherData.write
+      .format("json")
+      .partitionBy("City")
+      //.option("maxRecordsPerFile",2)
+      .mode(SaveMode.Overwrite)
+      .option("path","E://Files/city/oct5")
+    .save()
+
   }
 }

@@ -19,6 +19,7 @@ object DateArithmeticFunctions {
     import spark.implicits._
     val df = List(("2023-10-07", "15:30:00")).toDF("date_str", "time_str")
 
+    //Convert date string to date, time string to time
     val formattedDF = df.withColumn("date", to_date(col("date_str")))
       .withColumn("time", to_timestamp(col("time_str")))
 
