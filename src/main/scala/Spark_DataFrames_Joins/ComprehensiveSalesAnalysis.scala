@@ -62,5 +62,23 @@ object ComprehensiveSalesAnalysis {
 
     joined_df.show()
 
+    println("==================== Spark SQL ========================")
+     customers.createOrReplaceTempView("customers")
+     orders.createOrReplaceTempView("orders")
+     products.createOrReplaceTempView("products")
+     regions.createOrReplaceTempView("regions")
+
+    spark.sql(
+      """
+        SELECT *
+        FROM orders o
+        JOIN products p ON
+        o.product_id = p.product_id
+        JOIN customers c ON
+        o.customer_id = c.customer_id
+        JOIN regions r ON
+        c.region_id = r.region_id
+        """).show()
+
   }
 }
